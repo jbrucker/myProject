@@ -1,3 +1,6 @@
 /dist/
 /PicFile/
 /test/
+/build/
+/build.xml/
+/manifest.mf/
