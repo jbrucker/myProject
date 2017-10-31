@@ -16,7 +16,7 @@ import java.util.Scanner;
 import javax.swing.*;
 import javax.swing.JFrame;
 import javax.swing.Timer;
-import static myhilo.login.username;
+import static myhilo.LoginForm.username;
 
 
 
@@ -29,7 +29,7 @@ public class StarForm extends javax.swing.JFrame {
     /**
      * Creates new form StarForm
      */
-    static login login = new login();
+    static LoginForm login = new LoginForm();
     static List<String> userLog = new ArrayList<>();
     static List<Integer> userMoney = new ArrayList<>();
     static List<String> userLogin = new ArrayList<>();
@@ -313,7 +313,7 @@ public class StarForm extends javax.swing.JFrame {
         MnString = new javax.swing.JTextField();
         Money = new javax.swing.JLabel();
         usShow = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        LogoutBut = new javax.swing.JButton();
         Background = new javax.swing.JLabel();
 
         Dice6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/dice6.png"))); // NOI18N
@@ -386,19 +386,19 @@ public class StarForm extends javax.swing.JFrame {
         usShow.setFocusable(false);
         getContentPane().add(usShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 400, 140, 40));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 51, 51));
-        jButton1.setText("Logout");
-        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusPainted(false);
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LogoutBut.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        LogoutBut.setForeground(new java.awt.Color(255, 51, 51));
+        LogoutBut.setText("Logout");
+        LogoutBut.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        LogoutBut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LogoutBut.setFocusPainted(false);
+        LogoutBut.setFocusable(false);
+        LogoutBut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                LogoutButActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 460, 80, 30));
+        getContentPane().add(LogoutBut, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 460, 80, 30));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imageStart/BG.png"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -418,8 +418,8 @@ public class StarForm extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_PlayButtActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       login logout = new login();
+    private void LogoutButActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LogoutButActionPerformed
+       LoginForm logout = new LoginForm();
        userLog.clear();
        userLogin.clear();
        userMoney.clear();
@@ -427,8 +427,8 @@ public class StarForm extends javax.swing.JFrame {
        userMoneyShow.clear();
        logout.setVisible(true);
        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
- static Whated what = new Whated();
+    }//GEN-LAST:event_LogoutButActionPerformed
+ static HowToPlay what = new HowToPlay();
     /**
      * @param args the command line arguments
      */
@@ -473,10 +473,10 @@ public class StarForm extends javax.swing.JFrame {
     private javax.swing.JLabel Dice5;
     private javax.swing.JLabel Dice6;
     private javax.swing.JTextField HighLowtexT;
+    private javax.swing.JButton LogoutBut;
     private javax.swing.JTextField MnString;
     private javax.swing.JLabel Money;
     private javax.swing.JButton PlayButt;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel ship1;
     private javax.swing.JLabel ship2;
     private javax.swing.JLabel ship3;

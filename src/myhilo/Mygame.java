@@ -149,10 +149,12 @@ public class Mygame extends JFrame {
                betMoney=0;
                setBetMoney = Integer.toString(betMoney);
                whatSelectShip.setText(setBetMoney+" BATH");
-               getMoney get = new getMoney();
+               GetFreeMoney get = new GetFreeMoney();
                get.setVisible(true);
            }
-          
+           betMoney = 0;
+           setBetMoney = Integer.toString(betMoney);
+           whatSelectShip.setText(setBetMoney+" BATH");
            setMoney();
            setSaveStatus();
        }
@@ -1200,7 +1202,7 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_ResetActionPerformed
 
     private void WhatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WhatMouseClicked
-        Whated what = new Whated();
+        HowToPlay what = new HowToPlay();
         what.setVisible(true);
     }//GEN-LAST:event_WhatMouseClicked
 
