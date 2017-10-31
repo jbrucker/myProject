@@ -9,7 +9,7 @@ Software and Knowledge engineering which part of OOP project for first semester 
 - [How to get this game](#Get-this-game)
 - [Why we make this game](#why-we-make-this-game)
 
-##What is Hilo Game
+## What is Hilo Game
 The main meaning of this Hilo game is High and Low which play by finding the total point which is high or low point. 
 On this application we add some new feature to similar HighLow game (Thai gambling Game) which you will have more choices to play on.
 In the future we will add more game on this Hilo game application by keeping concept High and low which make you have more choice to play on this application.
@@ -17,7 +17,7 @@ In the future we will add more game on this Hilo game application by keeping con
     picture.....hopefully
     
  
- ##Main Features
+ ## Main Features
  - **Login Form** with remembering an account User, Password and Amount of the Money in game
  - **Register Form** for create new account for playing this game
  - **Game choosing** (This Feature is make User to have more choice to play game) *//dose not done yet*
@@ -25,41 +25,41 @@ In the future we will add more game on this Hilo game application by keeping con
  
  
  
- ##Game Play
- ###Login
+ ## Game Play
+ ### Login
  Login with your own account for remembering User and amount of the money that you have play on this application..
  
     picture.....login
- ###Register
+ ### Register
  Register for create new account for palying on this application.
  Every time you have register on this application your account will got money on the account 2000 bath.
     
     picture.....register
- ###Choosing Game
+ ### Choosing Game
  You can choose the game to play with all the game is keeping concept High and Low.
  
     picture.....gameChoice
- ###Hilo Dices Game
+ ### Hilo Dices Game
  This is Hilo dices game with you can choose the face of dice to bet on it which need one of the three dice to face up what you choosing.
  Also have feature to choose witch depend on how many face of dice need to face up the same as you bet.
  
     picture.....HilogameDices
     
     
-##Get This Game
-####Download
+## Get This Game
+#### Download
 
-Click [here]() to get the latest version of this application.
+Click [here](....) to get the latest version of this application.
 
-###Install
-#####Using Apple
+### Install
+##### Using Apple
      infomation
-#####Using Window
+##### Using Window
     information
 
-##Why Making This Game
+## Why Making This Game
     soon....
 
-##Contributors
+## Contributors
 - [**Manusporn Fukkham**](https://github.com/darmonlyone) 6010546702 
 - [**Korayanis Charngthong**](https://github.com/Korayanis) 6010546621
