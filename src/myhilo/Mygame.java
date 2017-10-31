@@ -11,20 +11,99 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+
 /**
  *
  * @author hp
  */
+     
+
 public class Mygame extends JFrame {
+    
+    static List<Integer> userMoney = new ArrayList<>();
+    static List<String> password = new ArrayList<>();
+    static List<String> userLogin = new ArrayList<>();
+    static List<Integer> userMoneyShow = new ArrayList<>();
+    static List<String> userLoginShow = new ArrayList<>();
+    static List<String> userLog = new ArrayList<>();
+    
+    
+    public void setArrayList(){
+              try {
+            File theFile = new File("src/newfile.log");
+            Scanner fileScanner = new Scanner(theFile);
+            while(fileScanner.hasNextLine()){
+                String[] menu = fileScanner.nextLine().replaceAll(" : ","  ").split("  ");
+                if(!menu[0].equals("##")) {
+             userLog.add(menu[0]);
+              }
+            }
+               
+
+        } catch (FileNotFoundException e) {
+            System.out.print(e);
+        }
+        
+         try {
+         File theFile1 = new File("src/usernamepassword.log");
+         Scanner fileScanner = new Scanner(theFile1);
+          while(fileScanner.hasNextLine()){
+                String[] menu = fileScanner.nextLine().replaceAll(" : ","  ").split("  ");
+                if(!menu[0].equals("##")) {
+                    userLogin.add(menu[0]);
+                    password.add(menu[1]);
+                    userMoney.add(Integer.parseInt(menu[2]));
+                    
+                }
+                if(menu[0].equals(userLog.get(0))){
+                    userMoneyShow.add(Integer.parseInt(menu[2]));
+                    userLoginShow.add(menu[0]);
+                }
+          }
+         } catch(FileNotFoundException e) {
+            System.out.print(e);
+         }
+        
+        String mn = Integer.toString(userMoneyShow.get(0));
+        MnString.setText(mn);
+        usShow.setText(userLoginShow.get(0));
+        money = userMoneyShow.get(0);
+    }
+    
+    public void setSaveStatus(){
+        String logFilePath = "src/usernamepassword.log";
+        OutputStream os = null;
+        try {
+            os = new FileOutputStream(logFilePath);
+        } catch (FileNotFoundException ex) {
+            System.out.println("Couldn't open output file " + logFilePath);
+            return;
+        }
+        PrintStream logSave = new PrintStream(os);
+        
+        for (int i = 0 ; i < userLogin.size() ; i++){
+            if(userLoginShow.get(0).equals(userLogin.get(i))){
+                userMoney.set(i,money);
+            }
+            logSave.printf("%s : %s : %s%n",userLogin.get(i),password.get(i),userMoney.get(i));
+        }
+        logSave.close();
+    }
     
     static Random rd = new Random();
     static int rollA,rollB,rollC,roll;
     static MyHiLO hilo = new MyHiLO();
-       
+    
+    static StarForm user = new StarForm();
+    
     static int money = 1000;
     static boolean check;
     static int bet,gotBet;
+    
+    int betMoney = 0;
+    String setBetMoney = " ";
       public void setMoney(){
           String mn = Integer.toString(money);
           MnString.setText(mn);
@@ -44,7 +123,7 @@ public class Mygame extends JFrame {
         roll = rollA+rollB+rollC;
     }
        public void betTime(){
-           bet = howMuchBet();
+           bet = betMoney;
            gotBet = timeToGot();
            if (!null1.isSelected() && !null2.isSelected()){
                if(check){
@@ -65,26 +144,32 @@ public class Mygame extends JFrame {
                    money -= bet;
                }
            } 
-           if(money<0){
-               System.exit(0);
+           if(money<=0){
+               money = 1000;
+               betMoney=0;
+               setBetMoney = Integer.toString(betMoney);
+               whatSelectShip.setText(setBetMoney+" BATH");
+               getMoney get = new getMoney();
+               get.setVisible(true);
            }
           
            setMoney();
+           setSaveStatus();
        }
-       public int howMuchBet(){
-           if(ship10select.isSelected()){
-               return 10;
-           }if (ship20select.isSelected()){
-               return 20;
-           }if (ship50select.isSelected()){
-               return 50;
-           }if (ship100select.isSelected()){
-               return 100;
-           }if (ship200select.isSelected()){
-               return 200;
-           }
-           return 0;
-       }
+//       public int howMuchBet(){
+//           if(ship10select.isSelected()){
+//               return 10;
+//           }if (ship20select.isSelected()){
+//               return 20;
+//           }if (ship50select.isSelected()){
+//               return 50;
+//           }if (ship100select.isSelected()){
+//               return 100;
+//           }if (ship200select.isSelected()){
+//               return 200;
+//           }
+//           return 0;
+//       }
        public int timeToGot(){
            if(oneOrfiveselect.isSelected()){
             return 2;
@@ -251,6 +336,7 @@ public class Mygame extends JFrame {
     public Mygame() {
         setWindow();
         setMoney();
+        setArrayList();
        null1.setSelected(rootPaneCheckingEnabled);
        null2.setSelected(rootPaneCheckingEnabled);
         
@@ -269,6 +355,36 @@ public class Mygame extends JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         HiLoSelect = new javax.swing.ButtonGroup();
         shipselect = new javax.swing.ButtonGroup();
+        oneOrfiveselect = new javax.swing.JRadioButton();
+        fivelowselect = new javax.swing.JRadioButton();
+        elevenHiLowselect = new javax.swing.JRadioButton();
+        sixlowselect = new javax.swing.JRadioButton();
+        sixOrtwoselect = new javax.swing.JRadioButton();
+        oneOrsixselect = new javax.swing.JRadioButton();
+        oneselect = new javax.swing.JRadioButton();
+        lowselect = new javax.swing.JRadioButton();
+        highselect = new javax.swing.JRadioButton();
+        sixselect = new javax.swing.JRadioButton();
+        sixOroneselect = new javax.swing.JRadioButton();
+        twoOrfiveselect = new javax.swing.JRadioButton();
+        twoselect = new javax.swing.JRadioButton();
+        threeselect = new javax.swing.JRadioButton();
+        fourselect = new javax.swing.JRadioButton();
+        fiveselect = new javax.swing.JRadioButton();
+        fiveOrtwoselect = new javax.swing.JRadioButton();
+        onetwothreeselect = new javax.swing.JRadioButton();
+        threeOrsixselect = new javax.swing.JRadioButton();
+        twoOrfourselect = new javax.swing.JRadioButton();
+        threeOrfiveselect = new javax.swing.JRadioButton();
+        fourOroneselect = new javax.swing.JRadioButton();
+        fourfivesixselect = new javax.swing.JRadioButton();
+        null1 = new javax.swing.JRadioButton();
+        null2 = new javax.swing.JRadioButton();
+        ship200select = new javax.swing.JRadioButton();
+        ship100select = new javax.swing.JRadioButton();
+        ship50select = new javax.swing.JRadioButton();
+        ship20select = new javax.swing.JRadioButton();
+        ship10select = new javax.swing.JRadioButton();
         six = new javax.swing.JLabel();
         cover = new javax.swing.JLabel();
         dice1 = new javax.swing.JLabel();
@@ -320,41 +436,82 @@ public class Mygame extends JFrame {
         LoseWin = new javax.swing.JTextField();
         howmuchlostwin = new javax.swing.JTextField();
         losewinbar = new javax.swing.JTextField();
+        What = new javax.swing.JTextField();
+        usShow = new javax.swing.JTextField();
+        Back = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
-        oneOrfiveselect = new javax.swing.JRadioButton();
-        fivelowselect = new javax.swing.JRadioButton();
-        elevenHiLowselect = new javax.swing.JRadioButton();
-        sixlowselect = new javax.swing.JRadioButton();
-        sixOrtwoselect = new javax.swing.JRadioButton();
-        oneOrsixselect = new javax.swing.JRadioButton();
-        oneselect = new javax.swing.JRadioButton();
-        lowselect = new javax.swing.JRadioButton();
-        highselect = new javax.swing.JRadioButton();
-        sixselect = new javax.swing.JRadioButton();
-        sixOroneselect = new javax.swing.JRadioButton();
-        twoOrfiveselect = new javax.swing.JRadioButton();
-        twoselect = new javax.swing.JRadioButton();
-        threeselect = new javax.swing.JRadioButton();
-        fourselect = new javax.swing.JRadioButton();
-        fiveselect = new javax.swing.JRadioButton();
-        fiveOrtwoselect = new javax.swing.JRadioButton();
-        onetwothreeselect = new javax.swing.JRadioButton();
-        threeOrsixselect = new javax.swing.JRadioButton();
-        twoOrfourselect = new javax.swing.JRadioButton();
-        threeOrfiveselect = new javax.swing.JRadioButton();
-        fourOroneselect = new javax.swing.JRadioButton();
-        fourfivesixselect = new javax.swing.JRadioButton();
-        null1 = new javax.swing.JRadioButton();
-        null2 = new javax.swing.JRadioButton();
-        ship200select = new javax.swing.JRadioButton();
-        ship100select = new javax.swing.JRadioButton();
-        ship50select = new javax.swing.JRadioButton();
-        ship20select = new javax.swing.JRadioButton();
-        ship10select = new javax.swing.JRadioButton();
+
+        HiLoSelect.add(oneOrfiveselect);
+
+        HiLoSelect.add(fivelowselect);
+        fivelowselect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fivelowselectActionPerformed(evt);
+            }
+        });
+
+        HiLoSelect.add(elevenHiLowselect);
+
+        HiLoSelect.add(sixlowselect);
+
+        HiLoSelect.add(sixOrtwoselect);
+
+        HiLoSelect.add(oneOrsixselect);
+
+        HiLoSelect.add(oneselect);
+
+        HiLoSelect.add(lowselect);
+
+        HiLoSelect.add(highselect);
+
+        HiLoSelect.add(sixselect);
+
+        HiLoSelect.add(sixOroneselect);
+
+        HiLoSelect.add(twoOrfiveselect);
+
+        HiLoSelect.add(twoselect);
+
+        HiLoSelect.add(threeselect);
+
+        HiLoSelect.add(fourselect);
+
+        HiLoSelect.add(fiveselect);
+
+        HiLoSelect.add(fiveOrtwoselect);
+
+        HiLoSelect.add(onetwothreeselect);
+
+        HiLoSelect.add(threeOrsixselect);
+
+        HiLoSelect.add(twoOrfourselect);
+
+        HiLoSelect.add(threeOrfiveselect);
+
+        HiLoSelect.add(fourOroneselect);
+
+        HiLoSelect.add(fourfivesixselect);
+
+        HiLoSelect.add(null1);
+        null1.setText("jRadioButton1");
+
+        shipselect.add(null2);
+        null2.setText("jRadioButton1");
+
+        shipselect.add(ship200select);
+
+        shipselect.add(ship100select);
+
+        shipselect.add(ship50select);
+
+        shipselect.add(ship20select);
+
+        shipselect.add(ship10select);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        six.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         six.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sixMouseClicked(evt);
@@ -376,6 +533,7 @@ public class Mygame extends JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jButton2.setText("Roll");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -395,18 +553,21 @@ public class Mygame extends JFrame {
         Reset.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         Reset.setText("Reset");
         Reset.setToolTipText("");
+        Reset.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Reset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetActionPerformed(evt);
             }
         });
-        getContentPane().add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(673, 640, 140, 70));
+        getContentPane().add(Reset, new org.netbeans.lib.awtextra.AbsoluteConstraints(693, 640, 120, 70));
 
         MnString.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         MnString.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         MnString.setText("Money");
         MnString.setAutoscrolls(false);
         MnString.setBorder(null);
+        MnString.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        MnString.setFocusable(false);
         MnString.setRequestFocusEnabled(false);
         getContentPane().add(MnString, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 100, 30));
 
@@ -414,6 +575,7 @@ public class Mygame extends JFrame {
         getContentPane().add(Money, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 160, 50));
 
         ship20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ship20.png"))); // NOI18N
+        ship20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ship20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ship20MouseClicked(evt);
@@ -422,6 +584,7 @@ public class Mygame extends JFrame {
         getContentPane().add(ship20, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 650, -1, -1));
 
         ship50.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ship50.png"))); // NOI18N
+        ship50.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ship50.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ship50MouseClicked(evt);
@@ -430,6 +593,7 @@ public class Mygame extends JFrame {
         getContentPane().add(ship50, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 650, -1, -1));
 
         ship100.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ship100.png"))); // NOI18N
+        ship100.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ship100.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ship100MouseClicked(evt);
@@ -438,6 +602,7 @@ public class Mygame extends JFrame {
         getContentPane().add(ship100, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 650, -1, -1));
 
         ship200.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ship200.png"))); // NOI18N
+        ship200.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ship200.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ship200MouseClicked(evt);
@@ -446,6 +611,7 @@ public class Mygame extends JFrame {
         getContentPane().add(ship200, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 650, -1, -1));
 
         ship10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/ship10.png"))); // NOI18N
+        ship10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ship10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ship10MouseClicked(evt);
@@ -453,6 +619,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(ship10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 650, -1, -1));
 
+        elevenHiLo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         elevenHiLo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 elevenHiLoMouseClicked(evt);
@@ -460,6 +627,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(elevenHiLo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 200, 90));
 
+        fivelow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fivelow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fivelowMouseClicked(evt);
@@ -467,6 +635,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(fivelow, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, 100, 90));
 
+        sixlow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sixlow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sixlowMouseClicked(evt);
@@ -474,6 +643,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(sixlow, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 230, 90, 90));
 
+        threeOrsix.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         threeOrsix.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 threeOrsixMouseClicked(evt);
@@ -481,6 +651,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(threeOrsix, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 520, 100, 100));
 
+        high.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         high.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 highMouseClicked(evt);
@@ -488,6 +659,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(high, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 330, 90, 90));
 
+        low.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         low.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lowMouseClicked(evt);
@@ -495,6 +667,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(low, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 330, 100, 90));
 
+        one.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         one.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 oneMouseClicked(evt);
@@ -502,6 +675,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(one, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 100, 90));
 
+        oneOrsix.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         oneOrsix.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 oneOrsixMouseClicked(evt);
@@ -509,13 +683,15 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(oneOrsix, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 100, 90));
 
+        fiveOrtwo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fiveOrtwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fiveOrtwoMouseClicked(evt);
             }
         });
-        getContentPane().add(fiveOrtwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 90, 100));
+        getContentPane().add(fiveOrtwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 420, 100, 100));
 
+        two.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         two.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 twoMouseClicked(evt);
@@ -523,27 +699,31 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(two, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 420, 100, 100));
 
+        five.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         five.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fiveMouseClicked(evt);
             }
         });
-        getContentPane().add(five, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 100, 90));
+        getContentPane().add(five, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 420, 100, 100));
 
+        three.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         three.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 threeMouseClicked(evt);
             }
         });
-        getContentPane().add(three, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, 100, 90));
+        getContentPane().add(three, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 100, 100));
 
+        four.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         four.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fourMouseClicked(evt);
             }
         });
-        getContentPane().add(four, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 430, 90, 90));
+        getContentPane().add(four, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 90, 100));
 
+        twoOrfive.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         twoOrfive.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 twoOrfiveMouseClicked(evt);
@@ -551,6 +731,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(twoOrfive, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 100, 100));
 
+        oneORfive.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         oneORfive.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 oneORfiveMouseClicked(evt);
@@ -558,6 +739,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(oneORfive, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 100, 90));
 
+        onetwothree.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         onetwothree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 onetwothreeMouseClicked(evt);
@@ -565,6 +747,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(onetwothree, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 520, 100, 100));
 
+        fourfivesix.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fourfivesix.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fourfivesixMouseClicked(evt);
@@ -572,6 +755,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(fourfivesix, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, 100, 100));
 
+        fourOrone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         fourOrone.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 fourOroneMouseClicked(evt);
@@ -579,6 +763,7 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(fourOrone, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 520, 100, 100));
 
+        threeOrfive.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         threeOrfive.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 threeOrfiveMouseClicked(evt);
@@ -586,26 +771,29 @@ public class Mygame extends JFrame {
         });
         getContentPane().add(threeOrfive, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 520, 110, 100));
 
+        twoOrfour.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         twoOrfour.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 twoOrfourMouseClicked(evt);
             }
         });
-        getContentPane().add(twoOrfour, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, 100, 90));
+        getContentPane().add(twoOrfour, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, 100, 100));
 
+        sixOrone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sixOrone.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sixOroneMouseClicked(evt);
             }
         });
-        getContentPane().add(sixOrone, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 90, 90));
+        getContentPane().add(sixOrone, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 330, 100, 90));
 
+        sixOrtwo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         sixOrtwo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sixOrtwoMouseClicked(evt);
             }
         });
-        getContentPane().add(sixOrtwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 90, 90));
+        getContentPane().add(sixOrtwo, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 230, 100, 90));
 
         oneORfive21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -626,6 +814,7 @@ public class Mygame extends JFrame {
         totalText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         totalText.setText("Totals");
         totalText.setBorder(null);
+        totalText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         totalText.setFocusable(false);
         getContentPane().add(totalText, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 210, 160, 50));
 
@@ -635,18 +824,21 @@ public class Mygame extends JFrame {
         totalBox.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         totalBox.setText("0");
         totalBox.setBorder(null);
+        totalBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         totalBox.setFocusable(false);
         getContentPane().add(totalBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 100, 50));
 
         whatSelectBet.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         whatSelectBet.setForeground(new java.awt.Color(204, 204, 204));
         whatSelectBet.setText("bet selected");
+        whatSelectBet.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         whatSelectBet.setFocusable(false);
         getContentPane().add(whatSelectBet, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 340, 110, 40));
 
         whatSelectShip.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         whatSelectShip.setForeground(new java.awt.Color(204, 204, 204));
         whatSelectShip.setText("Ship selected");
+        whatSelectShip.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         whatSelectShip.setFocusable(false);
         getContentPane().add(whatSelectShip, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 390, 110, 30));
 
@@ -654,6 +846,7 @@ public class Mygame extends JFrame {
         BetText.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         BetText.setText("Bet :");
         BetText.setBorder(null);
+        BetText.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BetText.setFocusable(false);
         getContentPane().add(BetText, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 340, 70, 40));
 
@@ -661,6 +854,7 @@ public class Mygame extends JFrame {
         BetText1.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         BetText1.setText("Ship :");
         BetText1.setBorder(null);
+        BetText1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BetText1.setFocusable(false);
         getContentPane().add(BetText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 390, 70, 30));
 
@@ -671,6 +865,7 @@ public class Mygame extends JFrame {
         LoseWin.setText("YOU LOSE!");
         LoseWin.setToolTipText("");
         LoseWin.setBorder(null);
+        LoseWin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LoseWin.setFocusable(false);
         getContentPane().add(LoseWin, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 460, 190, -1));
 
@@ -680,6 +875,7 @@ public class Mygame extends JFrame {
         howmuchlostwin.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         howmuchlostwin.setText("1000 bath.");
         howmuchlostwin.setBorder(null);
+        howmuchlostwin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         howmuchlostwin.setFocusable(false);
         getContentPane().add(howmuchlostwin, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, 170, -1));
 
@@ -689,108 +885,46 @@ public class Mygame extends JFrame {
         losewinbar.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         losewinbar.setText("YOU LOST MONEY:");
         losewinbar.setBorder(null);
+        losewinbar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         losewinbar.setFocusable(false);
         getContentPane().add(losewinbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 530, 170, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/pathHiLo.png"))); // NOI18N
-        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, -1));
-
-        HiLoSelect.add(oneOrfiveselect);
-        getContentPane().add(oneOrfiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
-
-        HiLoSelect.add(fivelowselect);
-        fivelowselect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fivelowselectActionPerformed(evt);
+        What.setBackground(new java.awt.Color(86, 57, 57));
+        What.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 100)); // NOI18N
+        What.setForeground(new java.awt.Color(255, 51, 51));
+        What.setText("?");
+        What.setBorder(null);
+        What.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        What.setFocusable(false);
+        What.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WhatMouseClicked(evt);
             }
         });
-        getContentPane().add(fivelowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        getContentPane().add(What, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 660, 50, 90));
 
-        HiLoSelect.add(elevenHiLowselect);
-        getContentPane().add(elevenHiLowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+        usShow.setBackground(new java.awt.Color(86, 57, 57));
+        usShow.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        usShow.setForeground(new java.awt.Color(255, 51, 51));
+        usShow.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        usShow.setText("Username");
+        usShow.setBorder(null);
+        usShow.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        usShow.setFocusable(false);
+        getContentPane().add(usShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, 40));
 
-        HiLoSelect.add(sixlowselect);
-        getContentPane().add(sixlowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
+        Back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/backas.png"))); // NOI18N
+        Back.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Back.setFocusable(false);
+        Back.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BackMouseClicked(evt);
+            }
+        });
+        getContentPane().add(Back, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 680, 120, 90));
 
-        HiLoSelect.add(sixOrtwoselect);
-        getContentPane().add(sixOrtwoselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, -1, -1));
-
-        HiLoSelect.add(oneOrsixselect);
-        getContentPane().add(oneOrsixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
-
-        HiLoSelect.add(oneselect);
-        getContentPane().add(oneselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 520, -1, -1));
-
-        HiLoSelect.add(lowselect);
-        getContentPane().add(lowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, -1, -1));
-
-        HiLoSelect.add(highselect);
-        getContentPane().add(highselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 460, -1, -1));
-
-        HiLoSelect.add(sixselect);
-        getContentPane().add(sixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
-
-        HiLoSelect.add(sixOroneselect);
-        getContentPane().add(sixOroneselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, -1, -1));
-
-        HiLoSelect.add(twoOrfiveselect);
-        getContentPane().add(twoOrfiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, -1, -1));
-
-        HiLoSelect.add(twoselect);
-        getContentPane().add(twoselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 430, -1, -1));
-
-        HiLoSelect.add(threeselect);
-        getContentPane().add(threeselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, -1, -1));
-
-        HiLoSelect.add(fourselect);
-        getContentPane().add(fourselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
-
-        HiLoSelect.add(fiveselect);
-        getContentPane().add(fiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 520, -1, -1));
-
-        HiLoSelect.add(fiveOrtwoselect);
-        getContentPane().add(fiveOrtwoselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, -1, -1));
-
-        HiLoSelect.add(onetwothreeselect);
-        getContentPane().add(onetwothreeselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, -1));
-
-        HiLoSelect.add(threeOrsixselect);
-        getContentPane().add(threeOrsixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, -1, -1));
-
-        HiLoSelect.add(twoOrfourselect);
-        getContentPane().add(twoOrfourselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 430, -1, -1));
-
-        HiLoSelect.add(threeOrfiveselect);
-        getContentPane().add(threeOrfiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, -1));
-
-        HiLoSelect.add(fourOroneselect);
-        getContentPane().add(fourOroneselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
-
-        HiLoSelect.add(fourfivesixselect);
-        getContentPane().add(fourfivesixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, -1));
-
-        HiLoSelect.add(null1);
-        null1.setText("jRadioButton1");
-        getContentPane().add(null1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, -1, -1));
-
-        shipselect.add(null2);
-        null2.setText("jRadioButton1");
-        getContentPane().add(null2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, -1, -1));
-
-        shipselect.add(ship200select);
-        getContentPane().add(ship200select, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 700, -1, -1));
-
-        shipselect.add(ship100select);
-        getContentPane().add(ship100select, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 700, -1, -1));
-
-        shipselect.add(ship50select);
-        getContentPane().add(ship50select, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 700, -1, -1));
-
-        shipselect.add(ship20select);
-        getContentPane().add(ship20select, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 700, -1, -1));
-
-        shipselect.add(ship10select);
-        getContentPane().add(ship10select, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 700, -1, -1));
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/pathHiLo.png"))); // NOI18N
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -995,31 +1129,61 @@ public class Mygame extends JFrame {
     private void ship10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship10MouseClicked
         ship10select.setSelected(rootPaneCheckingEnabled);
         whatSelectShip.setForeground(Color.BLACK);
-        whatSelectShip.setText("10 BATH");
+        if(betMoney >= money){
+            betMoney += 0;
+        }else{
+        betMoney += 10;
+        }
+        setBetMoney = Integer.toString(betMoney);
+        whatSelectShip.setText(setBetMoney+" BATH");
     }//GEN-LAST:event_ship10MouseClicked
 
     private void ship20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship20MouseClicked
         ship20select.setSelected(rootPaneCheckingEnabled);
         whatSelectShip.setForeground(Color.BLACK);
-        whatSelectShip.setText("20 BATH");
+        if(betMoney >= money){
+            betMoney += 0;
+        }else{
+        betMoney += 20;
+        }
+        setBetMoney = Integer.toString(betMoney);
+        whatSelectShip.setText(setBetMoney+" BATH");
     }//GEN-LAST:event_ship20MouseClicked
 
     private void ship50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship50MouseClicked
         ship50select.setSelected(rootPaneCheckingEnabled);
         whatSelectShip.setForeground(Color.BLACK);
-        whatSelectShip.setText("50 BATH");
+        if(betMoney >= money){
+            betMoney += 0;
+        }else{
+        betMoney += 50;
+        }
+        setBetMoney = Integer.toString(betMoney);
+        whatSelectShip.setText(setBetMoney+" BATH");
     }//GEN-LAST:event_ship50MouseClicked
 
     private void ship100MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship100MouseClicked
         ship100select.setSelected(rootPaneCheckingEnabled);
         whatSelectShip.setForeground(Color.BLACK);
-        whatSelectShip.setText("100 BATH");
+        if(betMoney >= money){
+            betMoney += 0;
+        }else{
+        betMoney += 100;
+        }
+        setBetMoney = Integer.toString(betMoney);
+        whatSelectShip.setText(setBetMoney+" BATH");
     }//GEN-LAST:event_ship100MouseClicked
 
     private void ship200MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship200MouseClicked
        ship200select.setSelected(rootPaneCheckingEnabled);
        whatSelectShip.setForeground(Color.BLACK);
-        whatSelectShip.setText("200 BATH");
+       if(betMoney >= money){
+            betMoney += 0;
+        }else{
+       betMoney += 200;
+       }
+       setBetMoney = Integer.toString(betMoney);
+        whatSelectShip.setText(setBetMoney+" BATH");
     }//GEN-LAST:event_ship200MouseClicked
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
@@ -1030,9 +1194,33 @@ public class Mygame extends JFrame {
        LoseWin.setForeground(new java.awt.Color(86, 57, 57));
        howmuchlostwin.setForeground(new java.awt.Color(86, 57, 57));
        losewinbar.setForeground(new java.awt.Color(86, 57, 57));
+       betMoney = 0;
        null1.setSelected(rootPaneCheckingEnabled);
        null2.setSelected(rootPaneCheckingEnabled);
     }//GEN-LAST:event_ResetActionPerformed
+
+    private void WhatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WhatMouseClicked
+        Whated what = new Whated();
+        what.setVisible(true);
+    }//GEN-LAST:event_WhatMouseClicked
+
+    private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
+        StarForm star = new StarForm();
+        userLog.clear();
+        userLogin.clear();
+        userLoginShow.clear();
+        userMoney.clear();
+        userMoneyShow.clear();
+        password.clear();
+        star.userLog.clear();
+        star.userLogin.clear();
+        star.userLoginShow.clear();
+        star.userMoney.clear();
+        star.userMoneyShow.clear();
+        this.setVisible(false);
+        star.setVisible(true);
+        
+    }//GEN-LAST:event_BackMouseClicked
      
     /**
      * @param args the command line arguments
@@ -1074,6 +1262,7 @@ public class Mygame extends JFrame {
     }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Back;
     private javax.swing.JTextField BetText;
     private javax.swing.JTextField BetText1;
     private javax.swing.ButtonGroup HiLoSelect;
@@ -1083,6 +1272,7 @@ public class Mygame extends JFrame {
     private javax.swing.JLabel Money;
     private javax.swing.JLabel Plate;
     private javax.swing.JButton Reset;
+    private javax.swing.JTextField What;
     private javax.swing.JLabel background;
     private javax.swing.JLabel cover;
     private javax.swing.JLabel dice1;
@@ -1157,6 +1347,7 @@ public class Mygame extends JFrame {
     private javax.swing.JLabel twoOrfour;
     private javax.swing.JRadioButton twoOrfourselect;
     private javax.swing.JRadioButton twoselect;
+    private javax.swing.JTextField usShow;
     private javax.swing.JTextField whatSelectBet;
     private javax.swing.JTextField whatSelectShip;
     // End of variables declaration//GEN-END:variables
