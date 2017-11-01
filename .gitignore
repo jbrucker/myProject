@@ -2,6 +2,6 @@
 /PicFile/
 /test/
 /build/
-/build.xml
-/manifest.mf
 /nbproject/
+build.xml
+manifest.mf
