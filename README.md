@@ -13,7 +13,7 @@ Software and Knowledge Engineering which this application is a part of OOP proje
 The main point of this Hilo game is the player guesses High or Low .win or loses is depend on the outcome of the number but 
 In the future we will add more game on this application by keeping concept High and low .The new feature that we add is similar to HighLow game so you have more choice to play on this application .
    
-   [game](src/imageReadme/HighLow.jpg)
+   ![game](src/imageReadme/HighLow.jpg)
     
  
  ## Main Features
@@ -28,23 +28,23 @@ In the future we will add more game on this application by keeping concept High 
  ### Login
  Login with your own account for remembering User and amount of the money that you have play on this application..
  
-   [login](src/imageReadme/login.png)
+   ![login](src/imageReadme/login.png)
  ### Register
  Register for create new account for palying on this application.
  Every time you have register on this application your account will got money on the account 2000 bath.
     
-   [register](src/imageReadme/register.png)
+   ![register](src/imageReadme/register.png)
  ### Choosing Game
  You can choose the game to play with all the game is keeping concept High and Low.
  
-   [choiceGame](src/imageReadme/gamePlay.png)
+   ![choiceGame](src/imageReadme/gamePlay.png)
  ### Hilo Dices Game
  This is Hilo dices game with you can choose the face of dice to bet on it which need one of the three dice to face up what you choosing.
  Also have feature to choose witch depend on how many faces of dice need to face up the same as you bet.
  
-   [hoetoplay](src/imageReadme/howto1.png)
-   [hoetoplay2](src/imageReadme/howto2.png)
-   [HighlowDice](src/imageReadme/HiloDiceGame.png)
+   ![hoetoplay](src/imageReadme/howto1.png)
+   ![hoetoplay2](src/imageReadme/howto2.png)
+   ![HighlowDice](src/imageReadme/HiloDiceGame.png)
     
 ## Get This Game
 #### Download
