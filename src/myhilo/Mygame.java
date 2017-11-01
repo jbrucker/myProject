@@ -151,10 +151,11 @@ public class Mygame extends JFrame {
                whatSelectShip.setText(setBetMoney+" BATH");
                GetFreeMoney get = new GetFreeMoney();
                get.setVisible(true);
-           }
-           betMoney = 0;
+           }else if(betMoney > money){
+           betMoney = money;
            setBetMoney = Integer.toString(betMoney);
            whatSelectShip.setText(setBetMoney+" BATH");
+           }
            setMoney();
            setSaveStatus();
        }

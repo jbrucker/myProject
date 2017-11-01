@@ -1,20 +1,19 @@
 # My Hilo Game
-This Hilo game application is gambling game which create by student at Kasetsart University in faculty of 
-Software and Knowledge engineering which part of OOP project for first semester at University.
+This Hilo game application is gambling game which create by student of Kasetsart University in faculty of 
+Software and Knowledge Engineering which this application is a part of OOP project for first semester of Kasetsart University.
 
 **Table of Contents**
 - [What is Hilo?](#what-is-hilo-game)
 - [Main Features](#main-features)
-- [What is on this game](#Game-play)
-- [How to get this game](#Get-this-game)
-- [Why we make this game](#why-we-make-this-game)
+- [What is on this game](#game-play)
+- [How to get this game](#get-this-game)
+- [Why we make this game](#why-making-this-game)
 
 ## What is Hilo Game
-The main meaning of this Hilo game is High and Low which play by finding the total point which is high or low point. 
-On this application we add some new feature to similar HighLow game (Thai gambling Game) which you will have more choices to play on.
-In the future we will add more game on this Hilo game application by keeping concept High and low which make you have more choice to play on this application.
-
-    picture.....hopefully
+The main point of this Hilo game is the player guesses High or Low .win or loses is depend on the outcome of the number but 
+In the future we will add more game on this application by keeping concept High and low .The new feature that we add is similar to HighLow game so you have more choice to play on this application .
+   
+   [game](src/imageReadme/HighLow.jpg)
     
  
  ## Main Features
@@ -29,22 +28,23 @@ In the future we will add more game on this Hilo game application by keeping con
  ### Login
  Login with your own account for remembering User and amount of the money that you have play on this application..
  
-    picture.....login
+   [login](src/imageReadme/login.png)
  ### Register
  Register for create new account for palying on this application.
  Every time you have register on this application your account will got money on the account 2000 bath.
     
-    picture.....register
+   [register](src/imageReadme/register.png)
  ### Choosing Game
  You can choose the game to play with all the game is keeping concept High and Low.
  
-    picture.....gameChoice
+   [choiceGame](src/imageReadme/gamePlay.png)
  ### Hilo Dices Game
  This is Hilo dices game with you can choose the face of dice to bet on it which need one of the three dice to face up what you choosing.
- Also have feature to choose witch depend on how many face of dice need to face up the same as you bet.
+ Also have feature to choose witch depend on how many faces of dice need to face up the same as you bet.
  
-    picture.....HilogameDices
-    
+   [hoetoplay](src/imageReadme/howto1.png)
+   [hoetoplay2](src/imageReadme/howto2.png)
+   [HighlowDice](src/imageReadme/HiloDiceGame.png)
     
 ## Get This Game
 #### Download
