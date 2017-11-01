@@ -1,7 +1,7 @@
-/dist/
-/PicFile/
-/test/
-/build/
-/nbproject/
+dist/
+PicFile/
+test/
+build/
+nbproject/
 build.xml
 manifest.mf
