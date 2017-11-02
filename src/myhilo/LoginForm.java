@@ -113,6 +113,7 @@ public class LoginForm extends javax.swing.JFrame {
         });
         getContentPane().add(loginButt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 120, 70));
 
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
         jPasswordField1.setText("jPasswordField1");
         jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
