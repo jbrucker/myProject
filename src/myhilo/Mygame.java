@@ -359,36 +359,6 @@ public class Mygame extends JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         HiLoSelect = new javax.swing.ButtonGroup();
         shipselect = new javax.swing.ButtonGroup();
-        oneOrfiveselect = new javax.swing.JRadioButton();
-        fivelowselect = new javax.swing.JRadioButton();
-        elevenHiLowselect = new javax.swing.JRadioButton();
-        sixlowselect = new javax.swing.JRadioButton();
-        sixOrtwoselect = new javax.swing.JRadioButton();
-        oneOrsixselect = new javax.swing.JRadioButton();
-        oneselect = new javax.swing.JRadioButton();
-        lowselect = new javax.swing.JRadioButton();
-        highselect = new javax.swing.JRadioButton();
-        sixselect = new javax.swing.JRadioButton();
-        sixOroneselect = new javax.swing.JRadioButton();
-        twoOrfiveselect = new javax.swing.JRadioButton();
-        twoselect = new javax.swing.JRadioButton();
-        threeselect = new javax.swing.JRadioButton();
-        fourselect = new javax.swing.JRadioButton();
-        fiveselect = new javax.swing.JRadioButton();
-        fiveOrtwoselect = new javax.swing.JRadioButton();
-        onetwothreeselect = new javax.swing.JRadioButton();
-        threeOrsixselect = new javax.swing.JRadioButton();
-        twoOrfourselect = new javax.swing.JRadioButton();
-        threeOrfiveselect = new javax.swing.JRadioButton();
-        fourOroneselect = new javax.swing.JRadioButton();
-        fourfivesixselect = new javax.swing.JRadioButton();
-        null1 = new javax.swing.JRadioButton();
-        null2 = new javax.swing.JRadioButton();
-        ship200select = new javax.swing.JRadioButton();
-        ship100select = new javax.swing.JRadioButton();
-        ship50select = new javax.swing.JRadioButton();
-        ship20select = new javax.swing.JRadioButton();
-        ship10select = new javax.swing.JRadioButton();
         six = new javax.swing.JLabel();
         cover = new javax.swing.JLabel();
         dice1 = new javax.swing.JLabel();
@@ -444,73 +414,36 @@ public class Mygame extends JFrame {
         usShow = new javax.swing.JTextField();
         Back = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
-
-        HiLoSelect.add(oneOrfiveselect);
-
-        HiLoSelect.add(fivelowselect);
-        fivelowselect.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fivelowselectActionPerformed(evt);
-            }
-        });
-
-        HiLoSelect.add(elevenHiLowselect);
-
-        HiLoSelect.add(sixlowselect);
-
-        HiLoSelect.add(sixOrtwoselect);
-
-        HiLoSelect.add(oneOrsixselect);
-
-        HiLoSelect.add(oneselect);
-
-        HiLoSelect.add(lowselect);
-
-        HiLoSelect.add(highselect);
-
-        HiLoSelect.add(sixselect);
-
-        HiLoSelect.add(sixOroneselect);
-
-        HiLoSelect.add(twoOrfiveselect);
-
-        HiLoSelect.add(twoselect);
-
-        HiLoSelect.add(threeselect);
-
-        HiLoSelect.add(fourselect);
-
-        HiLoSelect.add(fiveselect);
-
-        HiLoSelect.add(fiveOrtwoselect);
-
-        HiLoSelect.add(onetwothreeselect);
-
-        HiLoSelect.add(threeOrsixselect);
-
-        HiLoSelect.add(twoOrfourselect);
-
-        HiLoSelect.add(threeOrfiveselect);
-
-        HiLoSelect.add(fourOroneselect);
-
-        HiLoSelect.add(fourfivesixselect);
-
-        HiLoSelect.add(null1);
-        null1.setText("jRadioButton1");
-
-        shipselect.add(null2);
-        null2.setText("jRadioButton1");
-
-        shipselect.add(ship200select);
-
-        shipselect.add(ship100select);
-
-        shipselect.add(ship50select);
-
-        shipselect.add(ship20select);
-
-        shipselect.add(ship10select);
+        oneOrfiveselect = new javax.swing.JRadioButton();
+        fivelowselect = new javax.swing.JRadioButton();
+        elevenHiLowselect = new javax.swing.JRadioButton();
+        sixlowselect = new javax.swing.JRadioButton();
+        sixOrtwoselect = new javax.swing.JRadioButton();
+        oneOrsixselect = new javax.swing.JRadioButton();
+        oneselect = new javax.swing.JRadioButton();
+        lowselect = new javax.swing.JRadioButton();
+        highselect = new javax.swing.JRadioButton();
+        sixselect = new javax.swing.JRadioButton();
+        sixOroneselect = new javax.swing.JRadioButton();
+        twoOrfiveselect = new javax.swing.JRadioButton();
+        twoselect = new javax.swing.JRadioButton();
+        threeselect = new javax.swing.JRadioButton();
+        fourselect = new javax.swing.JRadioButton();
+        fiveselect = new javax.swing.JRadioButton();
+        fiveOrtwoselect = new javax.swing.JRadioButton();
+        onetwothreeselect = new javax.swing.JRadioButton();
+        threeOrsixselect = new javax.swing.JRadioButton();
+        twoOrfourselect = new javax.swing.JRadioButton();
+        threeOrfiveselect = new javax.swing.JRadioButton();
+        fourOroneselect = new javax.swing.JRadioButton();
+        fourfivesixselect = new javax.swing.JRadioButton();
+        null1 = new javax.swing.JRadioButton();
+        null2 = new javax.swing.JRadioButton();
+        ship200select = new javax.swing.JRadioButton();
+        ship100select = new javax.swing.JRadioButton();
+        ship50select = new javax.swing.JRadioButton();
+        ship20select = new javax.swing.JRadioButton();
+        ship10select = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -930,6 +863,103 @@ public class Mygame extends JFrame {
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/pathHiLo.png"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, -1));
 
+        HiLoSelect.add(oneOrfiveselect);
+        getContentPane().add(oneOrfiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(fivelowselect);
+        fivelowselect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fivelowselectActionPerformed(evt);
+            }
+        });
+        getContentPane().add(fivelowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(elevenHiLowselect);
+        getContentPane().add(elevenHiLowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(sixlowselect);
+        getContentPane().add(sixlowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(sixOrtwoselect);
+        getContentPane().add(sixOrtwoselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(oneOrsixselect);
+        getContentPane().add(oneOrsixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(oneselect);
+        getContentPane().add(oneselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(lowselect);
+        getContentPane().add(lowselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(highselect);
+        getContentPane().add(highselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(sixselect);
+        getContentPane().add(sixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(sixOroneselect);
+        getContentPane().add(sixOroneselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(twoOrfiveselect);
+        getContentPane().add(twoOrfiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(twoselect);
+        getContentPane().add(twoselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(threeselect);
+        getContentPane().add(threeselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(fourselect);
+        getContentPane().add(fourselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(fiveselect);
+        getContentPane().add(fiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(fiveOrtwoselect);
+        getContentPane().add(fiveOrtwoselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(onetwothreeselect);
+        getContentPane().add(onetwothreeselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(threeOrsixselect);
+        getContentPane().add(threeOrsixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(twoOrfourselect);
+        getContentPane().add(twoOrfourselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(threeOrfiveselect);
+        getContentPane().add(threeOrfiveselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(fourOroneselect);
+        getContentPane().add(fourOroneselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(fourfivesixselect);
+        getContentPane().add(fourfivesixselect, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        HiLoSelect.add(null1);
+        null1.setText("jRadioButton1");
+        getContentPane().add(null1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        shipselect.add(null2);
+        null2.setText("jRadioButton1");
+        getContentPane().add(null2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        shipselect.add(ship200select);
+        getContentPane().add(ship200select, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        shipselect.add(ship100select);
+        getContentPane().add(ship100select, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        shipselect.add(ship50select);
+        getContentPane().add(ship50select, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        shipselect.add(ship20select);
+        getContentPane().add(ship20select, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        shipselect.add(ship10select);
+        getContentPane().add(ship10select, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -1209,6 +1239,8 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_WhatMouseClicked
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
+        null1.setSelected(rootPaneCheckingEnabled);
+        null2.setSelected(rootPaneCheckingEnabled);
         StarForm star = new StarForm();
         userLog.clear();
         userLogin.clear();
