@@ -1011,157 +1011,157 @@ public class Mygame extends JFrame {
     int i = 250; 
     int j = 430;
     private void sixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixMouseClicked
-       sixselect.setSelected(rootPaneCheckingEnabled);
+       sixselect.setSelected(true);
        whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("FACE 6");
     }//GEN-LAST:event_sixMouseClicked
 
     private void elevenHiLoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_elevenHiLoMouseClicked
-        elevenHiLowselect.setSelected(rootPaneCheckingEnabled);
+        elevenHiLowselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("HILO");
     }//GEN-LAST:event_elevenHiLoMouseClicked
 
     private void fivelowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fivelowMouseClicked
-       fivelowselect.setSelected(rootPaneCheckingEnabled);
+       fivelowselect.setSelected(true);
        whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("5 LOW");
     }//GEN-LAST:event_fivelowMouseClicked
 
     private void sixlowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixlowMouseClicked
-       sixlowselect.setSelected(rootPaneCheckingEnabled);
+       sixlowselect.setSelected(true);
        whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("6 LOW");
     }//GEN-LAST:event_sixlowMouseClicked
 
     private void threeOrsixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeOrsixMouseClicked
-        threeOrsixselect.setSelected(rootPaneCheckingEnabled);
+        threeOrsixselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("3 AND 6");
     }//GEN-LAST:event_threeOrsixMouseClicked
 
     private void highMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highMouseClicked
-        highselect.setSelected(rootPaneCheckingEnabled);
+        highselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("HIGH");
     }//GEN-LAST:event_highMouseClicked
 
     private void lowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lowMouseClicked
-        lowselect.setSelected(rootPaneCheckingEnabled);
+        lowselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("LOW");
     }//GEN-LAST:event_lowMouseClicked
 
     private void oneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneMouseClicked
-       oneselect.setSelected(rootPaneCheckingEnabled);
+       oneselect.setSelected(true);
        whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("FACE 1");
     }//GEN-LAST:event_oneMouseClicked
 
     private void oneOrsixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneOrsixMouseClicked
-      oneOrsixselect.setSelected(rootPaneCheckingEnabled);
+      oneOrsixselect.setSelected(true);
       whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("1 AND 6");
     }//GEN-LAST:event_oneOrsixMouseClicked
 
     private void fiveOrtwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fiveOrtwoMouseClicked
-        fiveOrtwoselect.setSelected(rootPaneCheckingEnabled);
+        fiveOrtwoselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("5 AND 2");
     }//GEN-LAST:event_fiveOrtwoMouseClicked
 
     private void twoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoMouseClicked
-       twoselect.setSelected(rootPaneCheckingEnabled);
+       twoselect.setSelected(true);
        whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("FACE 2");
     }//GEN-LAST:event_twoMouseClicked
 
     private void fiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fiveMouseClicked
-        fiveselect.setSelected(rootPaneCheckingEnabled);
+        fiveselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("FACE 5");
     }//GEN-LAST:event_fiveMouseClicked
 
     private void threeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeMouseClicked
-        threeselect.setSelected(rootPaneCheckingEnabled);
+        threeselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("FACE 3");
     }//GEN-LAST:event_threeMouseClicked
 
     private void fourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourMouseClicked
-        fourselect.setSelected(rootPaneCheckingEnabled);
+        fourselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("FACE 4");
     }//GEN-LAST:event_fourMouseClicked
 
     private void twoOrfiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoOrfiveMouseClicked
-       twoOrfiveselect.setSelected(rootPaneCheckingEnabled);
+       twoOrfiveselect.setSelected(true);
        whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("2 AND 5");
     }//GEN-LAST:event_twoOrfiveMouseClicked
 
     private void onetwothreeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onetwothreeMouseClicked
-        onetwothreeselect.setSelected(rootPaneCheckingEnabled);
+        onetwothreeselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("1 2 3");
     }//GEN-LAST:event_onetwothreeMouseClicked
 
     private void fourfivesixMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourfivesixMouseClicked
-        fourfivesixselect.setSelected(rootPaneCheckingEnabled);
+        fourfivesixselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("4 5 6 ");
     }//GEN-LAST:event_fourfivesixMouseClicked
 
     private void fourOroneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fourOroneMouseClicked
-        fourOroneselect.setSelected(rootPaneCheckingEnabled);
+        fourOroneselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("4 AND 1");
     }//GEN-LAST:event_fourOroneMouseClicked
 
     private void threeOrfiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_threeOrfiveMouseClicked
-        threeOrfiveselect.setSelected(rootPaneCheckingEnabled);
+        threeOrfiveselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("3 AND 5");
     }//GEN-LAST:event_threeOrfiveMouseClicked
 
     private void twoOrfourMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_twoOrfourMouseClicked
-        twoOrfourselect.setSelected(rootPaneCheckingEnabled);
+        twoOrfourselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("2 AND 4");
     }//GEN-LAST:event_twoOrfourMouseClicked
 
     private void sixOrtwoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixOrtwoMouseClicked
-        sixOrtwoselect.setSelected(rootPaneCheckingEnabled);
+        sixOrtwoselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("6 AND 2");
     }//GEN-LAST:event_sixOrtwoMouseClicked
 
     private void oneORfive21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneORfive21MouseClicked
-        oneOrfiveselect.setSelected(rootPaneCheckingEnabled);
+        oneOrfiveselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("1 AND 5");
     }//GEN-LAST:event_oneORfive21MouseClicked
 
     private void sixOroneMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sixOroneMouseClicked
-        sixOroneselect.setSelected(rootPaneCheckingEnabled);
+        sixOroneselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("6 AND 1");
     }//GEN-LAST:event_sixOroneMouseClicked
 
     private void oneORfiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_oneORfiveMouseClicked
-        oneOrfiveselect.setSelected(rootPaneCheckingEnabled);
+        oneOrfiveselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("1 AND 5");
     }//GEN-LAST:event_oneORfiveMouseClicked
 
     private void fivelowselectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fivelowselectActionPerformed
-        fivelowselect.setSelected(rootPaneCheckingEnabled);
+        fivelowselect.setSelected(true);
         whatSelectBet.setForeground(Color.BLACK);
        whatSelectBet.setText("5 LOW");
     }//GEN-LAST:event_fivelowselectActionPerformed
 
     private void ship10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship10MouseClicked
-        ship10select.setSelected(rootPaneCheckingEnabled);
+        ship10select.setSelected(true);
         whatSelectShip.setForeground(Color.BLACK);
         if(betMoney >= money){
             betMoney += 0;
@@ -1173,7 +1173,7 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_ship10MouseClicked
 
     private void ship20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship20MouseClicked
-        ship20select.setSelected(rootPaneCheckingEnabled);
+        ship20select.setSelected(true);
         whatSelectShip.setForeground(Color.BLACK);
         if(betMoney >= money){
             betMoney += 0;
@@ -1185,7 +1185,7 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_ship20MouseClicked
 
     private void ship50MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship50MouseClicked
-        ship50select.setSelected(rootPaneCheckingEnabled);
+        ship50select.setSelected(true);
         whatSelectShip.setForeground(Color.BLACK);
         if(betMoney >= money){
             betMoney += 0;
@@ -1197,7 +1197,7 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_ship50MouseClicked
 
     private void ship100MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship100MouseClicked
-        ship100select.setSelected(rootPaneCheckingEnabled);
+        ship100select.setSelected(true);
         whatSelectShip.setForeground(Color.BLACK);
         if(betMoney >= money){
             betMoney += 0;
@@ -1209,7 +1209,7 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_ship100MouseClicked
 
     private void ship200MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ship200MouseClicked
-       ship200select.setSelected(rootPaneCheckingEnabled);
+       ship200select.setSelected(true);
        whatSelectShip.setForeground(Color.BLACK);
        if(betMoney >= money){
             betMoney += 0;
@@ -1229,8 +1229,8 @@ public class Mygame extends JFrame {
        howmuchlostwin.setForeground(new java.awt.Color(86, 57, 57));
        losewinbar.setForeground(new java.awt.Color(86, 57, 57));
        betMoney = 0;
-       null1.setSelected(rootPaneCheckingEnabled);
-       null2.setSelected(rootPaneCheckingEnabled);
+       null1.setSelected(true);
+       null2.setSelected(true);
     }//GEN-LAST:event_ResetActionPerformed
 
     private void WhatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WhatMouseClicked
@@ -1239,8 +1239,8 @@ public class Mygame extends JFrame {
     }//GEN-LAST:event_WhatMouseClicked
 
     private void BackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BackMouseClicked
-        null1.setSelected(rootPaneCheckingEnabled);
-        null2.setSelected(rootPaneCheckingEnabled);
+        null1.setSelected(true);
+        null2.setSelected(true);
         StarForm star = new StarForm();
         userLog.clear();
         userLogin.clear();
