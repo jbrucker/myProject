@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import javax.swing.*;
 /**
  *
  * @author hp
@@ -28,6 +29,7 @@ public class LoginForm extends javax.swing.JFrame {
     static List<Integer> userMoney = new ArrayList<>();
       public LoginForm() {
        
+                  
         setSize(500, 500);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -45,12 +47,13 @@ public class LoginForm extends javax.swing.JFrame {
     private void initComponents() {
 
         Wrong = new javax.swing.JTextField();
-        passwordText = new javax.swing.JTextField();
         userText = new javax.swing.JTextField();
         goRegister = new javax.swing.JTextField();
         loginButt = new javax.swing.JButton();
         loginButt1 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
         Background = new javax.swing.JLabel();
+        passwordText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -62,16 +65,6 @@ public class LoginForm extends javax.swing.JFrame {
         Wrong.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Wrong.setFocusable(false);
         getContentPane().add(Wrong, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
-
-        passwordText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        passwordText.setForeground(new java.awt.Color(204, 204, 204));
-        passwordText.setText("password");
-        passwordText.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordTextMouseClicked(evt);
-            }
-        });
-        getContentPane().add(passwordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 270, 40));
 
         userText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         userText.setForeground(new java.awt.Color(204, 204, 204));
@@ -120,9 +113,28 @@ public class LoginForm extends javax.swing.JFrame {
         });
         getContentPane().add(loginButt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 120, 70));
 
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField1.setText("jPasswordField1");
+        jPasswordField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPasswordField1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 270, 40));
+
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imageStart/Login.png"))); // NOI18N
         Background.setText("0357102284");
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
+
+        passwordText.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        passwordText.setForeground(new java.awt.Color(204, 204, 204));
+        passwordText.setText("password");
+        passwordText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                passwordTextMouseClicked(evt);
+            }
+        });
+        getContentPane().add(passwordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 270, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -162,14 +174,14 @@ public class LoginForm extends javax.swing.JFrame {
     private void loginButt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButt1ActionPerformed
         userText.setForeground(new java.awt.Color(204, 204, 204));
         userText.setText("username");
-        passwordText.setForeground(new java.awt.Color(204, 204, 204));
-        passwordText.setText("password");
+        jPasswordField1.setForeground(new java.awt.Color(204, 204, 204));
+        jPasswordField1.setText("password");
     }//GEN-LAST:event_loginButt1ActionPerformed
 
     private void loginButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtActionPerformed
         
         String userLogin = userText.getText();
-        String passLogin = passwordText.getText();
+        String passLogin = jPasswordField1.getText();
           try {
             File theFile = new File("src/usernamepassword.log");
             Scanner fileScanner = new Scanner(theFile);
@@ -216,6 +228,11 @@ public class LoginForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginButtActionPerformed
 
+    private void jPasswordField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPasswordField1MouseClicked
+         jPasswordField1.setText("");
+        jPasswordField1.setForeground(new java.awt.Color(0,0,0));
+    }//GEN-LAST:event_jPasswordField1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -256,6 +273,7 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel Background;
     private javax.swing.JTextField Wrong;
     private javax.swing.JTextField goRegister;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton loginButt;
     private javax.swing.JButton loginButt1;
     private javax.swing.JTextField passwordText;
